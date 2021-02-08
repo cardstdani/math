@@ -1,0 +1,24 @@
+import math
+
+# r = (Ax + By + C = 0)
+a1 = 0
+b1 = 0
+c1 = 3
+
+# s = (A'x + B'y + C' = 0)
+a2 = 0
+b2 = 0
+c2 = 3
+
+def distance(a1, b1, c1, a2, b2, c2):
+    if ((a1 == b1) and (a2 == b2) and (c1 == c2)):
+        return 0
+    elif ((a1 == b1) and (a2 == b2)):
+        divisor = math.sqrt((a1 * a1) + (b1 * b1))
+        if (divisor == 0):
+            return abs(c2 - c1)
+        return abs((c1 - c2) / divisor)
+    else:
+        return 0
+
+print(distance(a1, b1, c1, a2, b2, c2))
