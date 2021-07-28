@@ -10,3 +10,4 @@ def compoundedExponentialDecay(initialAmount=300, rate=0.045, divisions=2, itera
 
 print(simpleExponentialGrowth(200, 1.03, 10))
 print(compoundedExponentialGrowth(1200, 0.06, 12, 3))
+print(compoundedExponentialGrowth(4000, 0.025, 12000, 5))
