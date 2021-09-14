@@ -3,7 +3,7 @@ import numpy as np
 import math
 from matplotlib.animation import FuncAnimation 
 
-x = []
+x = np.linspace(-40, 40, 500)
 y = []
 
 #Function to evaluate
@@ -24,13 +24,9 @@ def plotLine(m, n, r=20):
   return
 
 #Plot function
-r = 40
-prec = 10
-for i in range(-r*prec, (r*prec) + 1):
-  x.append(i/prec)
-  y.append(f(i/prec))
+for i in x:
+  y.append(f(i))
 
-#Plot function
 plt.figure(1, figsize=(16, 16))
 plt.plot(x, y)
 
