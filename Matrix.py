@@ -1,4 +1,3 @@
-#MATRICES
 class matrix():
   def __init__(self, m=None):
     self.m = m
@@ -28,24 +27,25 @@ class matrix():
   
   def __sub__(self, n):
     if len(self.m) == len(n.m) and len(self.m[0]) == len(n.m[0]):
-      #Sum
       for i in range(len(self.m)):
         for j in range(len(self.m[i])):
           n.change(i, j, self.m[i][j] - n.m[i][j])
     return n
   
-  def __rmul__(self, n):    
+  def __rmul__(self, n): 
+    #Scalar by matrix multiplication   
     for i in range(len(self.m)):
         for j in range(len(self.m[i])):
           self.change(i, j, self.m[i][j] * n)
     return self
   
   def __mul__(self, n):    
+    #Matrix multiplication
     if (len(self.m[0]) == len(n.m)):
       o = []
       for i in range(len(self.m)):
         o.append([])
-        for j in range(len(self.m[0])):
+        for j in range(len(n.m[0])):
           o[i].append(self.getRowByColumn(i, j, n))
       self.setMatrix(o)
       return self
@@ -59,12 +59,10 @@ class matrix():
   def __len__(self):
     return len(self.m) * len(self.m[0])
   
-  def __str__(self):
+  def __str__(self):    
     r = ""
-    for i in self.m:
-      for j in i:
-        r += str(j) + " "
-      r += "\n"
+    for i in self.m:      
+      r += str(i) + "\n"
     return r
 
 matrix1 = [
@@ -73,16 +71,17 @@ matrix1 = [
              [6, 7, 8]
 ]
 matrix2 = [
-             [0, 4, 2],
-             [3, 4, 5],
-             [6, 7, 8]
+             [-1, 0, 0],
+             [0, -1, 0],
+             [0, 0, -1]
+
 ]
-m = matrix()
-m.setMatrix(matrix1)
-n = matrix()
-n.setMatrix(matrix2)
+
+m = matrix(matrix1)
+n = matrix(matrix2)
 
 print(m)
 print(n)
+print(m.transposed())
 
 print(m*n)
