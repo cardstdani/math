@@ -50,6 +50,14 @@ class matrix():
       self.setMatrix(o)
       return self
   
+  def __pow__(self, n):    
+    #Matrix pow    
+    n = int((n**2)**(1/2))  
+    s = matrix(self.m) 
+    for i in range(n-1):
+      self *= s
+    return self
+  
   def getRowByColumn(self, row, column, n):
     r = 0
     for i in range(len(self.m[row])):
@@ -85,3 +93,4 @@ print(n)
 print(m.transposed())
 
 print(m*n)
+print(m**4000)
