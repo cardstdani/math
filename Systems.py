@@ -60,5 +60,4 @@ if rankA == rankA2 == unknown:
   for i in range(len(d.keys())):
     solution = np.matrix(a)    
     solution[:, i] = c
-    print(solution, "\n")
-    print(np.linalg.det(solution) / detA)
+    print(list(d.keys())[i], "=", np.linalg.det(solution) / detA)
