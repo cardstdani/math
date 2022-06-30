@@ -21,15 +21,16 @@ def factorial(n):
 def nderivative(func, i):
     return eval("func" + ".diff(dx)"*i)
 
-s = "lambda x, a : f(a) + " + " + ".join([f"nderivative(f(dx), {i}).doit().subs("+"{dx:a}"+f")*((x-a)**{i})*(1/factorial({i}))" for i in range(1, 9)])
+s = "lambda x, a : f(a) + " + " + ".join([f"nderivative(f(dx), {i}).doit().subs("+"{dx:a}"+f")*((x-a)**{i})*(1/factorial({i}))" for i in range(1, 19)])
 p = eval(s)
 print(s)
 
-x = np.linspace(-5, 5, 100)
+x = np.linspace(-15, 15, 100)
 y = [f(i) for i in x]
 
 y2 = [p(i, 0) for i in x]
 
 plt.plot(x, y)
 plt.plot(x, y2)
+plt.ylim([-4, 4])
 plt.show()
